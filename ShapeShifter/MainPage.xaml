@@ -1,0 +1,43 @@
+﻿<Page
+    x:Class="ShapeShifter.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ShapeShifter.UI.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+        <TextBlock HorizontalAlignment="Center" Margin="0,20,0,0" FontSize="100">Shape Shifter</TextBlock>
+        <StackPanel Orientation="Horizontal" CornerRadius="10" Padding="20" Margin="0,20,0,0" Grid.Row="1" HorizontalAlignment="Center">
+            <StackPanel.Background>
+                <SolidColorBrush Color="Gainsboro" Opacity=".1" />
+            </StackPanel.Background>
+            <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                <TextBlock x:Name="txt_score"  Foreground="LightSeaGreen" Margin="0,0,0,0" FontSize="30">Points: 0</TextBlock>
+                <TextBlock x:Name="txt_level"  Foreground="LightSeaGreen" Margin="20,0,0,0" FontSize="30">Level: 0</TextBlock>
+            </StackPanel>
+            
+            <Button x:Name="btn_replay" Visibility="Collapsed" Margin="40,0,0,0" Content="Replay" CornerRadius="5" FontSize="20" Padding="20,10" />
+        </StackPanel>
+        
+        <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+            <local:GameField x:Name="gamefield" Margin="10" GameSpeed="1" ShapeDroughtMax="10" ShapeStartRow="2" ShapeStartColumn="5" GameWidth="12" GameHeight="16" />
+            <Border Margin="10" HorizontalAlignment="Center" VerticalAlignment="Top" >
+                <local:GameField x:Name="control_preview" GameSpeed="1"  GameWidth="5" GameHeight="8"   />
+            </Border>
+        </StackPanel>
+
+
+        <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+            <Button Opacity="0" />
+        </StackPanel>
+    </Grid>
+</Page>
